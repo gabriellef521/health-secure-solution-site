@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Message Sent | Health Secure Solution</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&family=Alex+Brush&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar__contact">
+      <a href="tel:6032335480">📞 603 233 5480</a>
+      <a href="mailto:gabriellef@healthsecuresolution.com">✉ gabriellef@healthsecuresolution.com</a>
+    </div>
+    <div class="topbar__social">
+      <a href="https://web.facebook.com/BuySellWithGabrielle" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+      <a href="https://www.instagram.com/gabriellefafard_" aria-label="Instagram" target="_blank" rel="noopener">ig</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">Health Secure<span>Solutions</span></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="individual.html">Individual</a>
+      <a href="group.html">Group</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="nav__cta">
+      <a href="#" class="btn btn--primary" data-open-quote><span>Get A Quote</span></a>
+      <button class="nav__toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="section text-center">
+    <div class="container" style="max-width:640px;">
+      <p class="eyebrow">Thank You</p>
+      <h1>Your message is on its way.</h1>
+      <p class="lead" style="margin-top:14px;">I got your submission and I'll get back to you shortly!</p>
+      <div class="hero__actions" style="justify-content:center; margin-top:28px;">
+        <a href="index.html" class="btn btn--primary">Back To Home</a>
+        <a href="individual.html" class="btn btn--outline">Explore Coverage</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">Health Secure<span>Solutions</span></a>
+        <p>Based in Fort Lauderdale, FL — personalized health insurance guidance for families and small businesses, licensed in 36+ states.</p>
+        <div class="footer-social">
+          <a href="https://web.facebook.com/BuySellWithGabrielle" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+          <a href="https://www.instagram.com/gabriellefafard_" aria-label="Instagram" target="_blank" rel="noopener">ig</a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="individual.html">Individual</a></li>
+          <li><a href="group.html">Group</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul class="footer-links">
+          <li><a href="tel:6032335480">603 233 5480</a></li>
+          <li><a href="mailto:gabriellef@healthsecuresolution.com">gabriellef@healthsecuresolution.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">Copyright © 2026 Health Secure Solution. All Right Reserved.</div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="quote-modal">
+  <div class="modal">
+    <button class="modal__close" aria-label="Close">&times;</button>
+    <h3>Get A Quote</h3>
+    <p style="margin-bottom:18px; font-size:0.9rem;">Tell me a bit about what you need and I'll follow up.</p>
+    <form action="get-quote-handler.php" method="POST">
+      <div class="form-grid">
+        <div class="full"><label>Name</label><input type="text" name="name" required></div>
+        <div class="full">
+          <label>Coverage Type</label>
+          <select name="coverage_type" required>
+            <option value="" disabled selected>Choose one</option>
+            <option value="individual">Individual</option>
+            <option value="family">Family</option>
+            <option value="business">Business</option>
+          </select>
+        </div>
+        <div class="full"><label>Email</label><input type="email" name="email" required></div>
+        <div class="full"><label>Phone</label><input type="tel" name="phone"></div>
+        <div class="full"><label>What are you looking for?</label><textarea name="message" rows="3"></textarea></div>
+      </div>
+      <button type="submit" class="btn btn--primary" style="margin-top:14px; width:100%; justify-content:center;">Send</button>
+      <div class="form-status"></div>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

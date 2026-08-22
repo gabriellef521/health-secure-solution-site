@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you.html
+Disallow: /*.php$
+
+Sitemap: https://healthsecuresolution.com/sitemap.xml
