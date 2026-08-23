@@ -138,7 +138,7 @@
         <div class="form-card">
           <h2 style="margin-bottom:4px;">Send Us A Message</h2>
           <p style="margin-bottom:20px;">I'll get back to you as soon as I can.</p>
-          <form action="send-message-handler.php" method="POST" id="contact-form">
+          <form action="/api/contact" method="POST" id="contact-form">
             <div class="form-grid">
               <div><label for="first-name">First Name</label><input id="first-name" name="first_name" type="text" required></div>
               <div><label for="last-name">Last Name</label><input id="last-name" name="last_name" type="text" required></div>
@@ -196,7 +196,7 @@
     <button class="modal__close" aria-label="Close">&times;</button>
     <h3>Get A Quote</h3>
     <p style="margin-bottom:18px; font-size:0.9rem;">Tell me a bit about what you need and I'll follow up.</p>
-    <form action="get-quote-handler.php" method="POST">
+    <form action="/api/quote" method="POST">
       <div class="form-grid">
         <div class="full"><label>Name</label><input type="text" name="name" required></div>
         <div class="full">
@@ -219,12 +219,9 @@
 </div>
 
 <!--
-  This form and the "Get A Quote" popup submit to send-message-handler.php /
-  get-quote-handler.php, which email new submissions straight to
-  gabriellef@healthsecuresolution.com. Those two .php files need real PHP
-  hosting to run (they will NOT work opened directly from your computer as a
-  file:// page) — they'll start working automatically once this site is
-  uploaded to Namecheap, since Namecheap's shared hosting runs PHP by default.
+  This form and the "Get A Quote" popup submit to /api/contact and
+  /api/quote, two Vercel serverless functions that email new submissions
+  straight to gabriellef@healthsecuresolution.com via Resend.
 -->
 
 <script src="assets/js/main.js"></script>
