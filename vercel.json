@@ -2,10 +2,21 @@
   "redirects": [
     { "source": "/contact-us", "destination": "/contact.html", "permanent": true },
     { "source": "/contact-us/", "destination": "/contact.html", "permanent": true },
+    { "source": "/about", "destination": "/about.html", "permanent": true },
+    { "source": "/about/", "destination": "/about.html", "permanent": true },
+    { "source": "/individual", "destination": "/individual.html", "permanent": true },
+    { "source": "/individual/", "destination": "/individual.html", "permanent": true },
+    { "source": "/group", "destination": "/group.html", "permanent": true },
+    { "source": "/group/", "destination": "/group.html", "permanent": true },
+    { "source": "/blog", "destination": "/blog.html", "permanent": true },
+    { "source": "/blog/", "destination": "/blog.html", "permanent": true },
+    { "source": "/marketplace-vs-private-insurance", "destination": "/marketplace-vs-private-insurance.html", "permanent": true },
+    { "source": "/marketplace-vs-private-insurance/", "destination": "/marketplace-vs-private-insurance.html", "permanent": true },
+    { "source": "/small-business-health-insurance-requirements", "destination": "/small-business-health-insurance-requirements.html", "permanent": true },
+    { "source": "/small-business-health-insurance-requirements/", "destination": "/small-business-health-insurance-requirements.html", "permanent": true },
     { "source": "/home", "destination": "/", "permanent": true },
     { "source": "/home/", "destination": "/", "permanent": true },
     { "source": "/services", "destination": "/", "permanent": true },
-    { "source": "/services/", "destination": "/", "permanent": true },
-    { "source": "/:page/", "destination": "/:page.html", "permanent": true }
+    { "source": "/services/", "destination": "/", "permanent": true }
   ]
 }
