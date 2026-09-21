@@ -140,6 +140,11 @@
           <h2 style="margin-bottom:4px;">Send Us A Message</h2>
           <p style="margin-bottom:20px;">I'll get back to you as soon as I can.</p>
           <form action="/api/contact" method="POST" id="contact-form">
+            <div class="hp-field" aria-hidden="true">
+              <label for="contact-website">Website</label>
+              <input type="text" id="contact-website" name="hp_website" tabindex="-1" autocomplete="off">
+            </div>
+            <input type="hidden" name="ts" class="js-form-ts" value="">
             <div class="form-grid">
               <div><label for="first-name">First Name</label><input id="first-name" name="first_name" type="text" required></div>
               <div><label for="last-name">Last Name</label><input id="last-name" name="last_name" type="text" required></div>
@@ -198,6 +203,11 @@
     <h3>Get A Quote</h3>
     <p style="margin-bottom:18px; font-size:0.9rem;">Tell me a bit about what you need and I'll follow up.</p>
     <form action="/api/quote" method="POST">
+      <div class="hp-field" aria-hidden="true">
+        <label for="quote-website">Website</label>
+        <input type="text" id="quote-website" name="hp_website" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="hidden" name="ts" class="js-form-ts" value="">
       <div class="form-grid">
         <div class="full"><label>Name</label><input type="text" name="name" required></div>
         <div class="full">
