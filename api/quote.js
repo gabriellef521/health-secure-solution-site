@@ -19,6 +19,41 @@ function capitalize(value) {
   return value ? value.charAt(0).toUpperCase() + value.slice(1) : value;
 }
 
+// --- Spam protection -------------------------------------------------
+// 1) Honeypot: "hp_website" is hidden from real visitors via CSS, so
+//    only an automated script filling every field would populate it.
+// 2) Timing trap: "ts" is stamped client-side (in main.js) the moment
+//    the form becomes visible. A submission that arrives implausibly
+//    fast after that almost certainly wasn't filled out by a person.
+const MIN_HUMAN_FILL_MS = 2000;
+
+function isLikelyBot(body) {
+  if (cleanField(body.hp_website)) return true;
+  const ts = parseInt(cleanField(body.ts), 10);
+  if (!Number.isFinite(ts)) return true;
+  return Date.now() - ts < MIN_HUMAN_FILL_MS;
+}
+
+// Flags common cold-pitch/marketing-sales language so Gaby can filter
+// these out of her main inbox instead of them blending in with real
+// insurance leads. Not blocked outright — just tagged, since it's
+// coming from a real person rather than a bot.
+const SALES_PITCH_KEYWORDS = [
+  'seo', 'backlink', 'link building', 'guest post', 'digital marketing',
+  'web design', 'website design', 'improve your ranking', 'increase your ranking',
+  'rank higher on google', 'search ranking', 'grow your business online',
+  'marketing agency', 'social media management', 'google ads', ' ppc ',
+  'i came across your website', 'i visited your website', 'i visited your site',
+  'boost your online presence', 'online visibility', 'free consultation',
+  'no obligation', 'get more leads', 'guaranteed results', 'website audit',
+  'increase traffic', 'more traffic to your website',
+];
+
+function looksLikeSalesPitch(text) {
+  const lower = ` ${text.toLowerCase()} `;
+  return SALES_PITCH_KEYWORDS.some((k) => lower.includes(k));
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -27,6 +62,14 @@ module.exports = async (req, res) => {
   }
 
   const body = req.body || {};
+
+  if (isLikelyBot(body)) {
+    // Pretend success so scrapers don't learn they were caught.
+    res.writeHead(302, { Location: '/thank-you.html' });
+    res.end();
+    return;
+  }
+
   const name = cleanField(body.name);
   const coverage_type = cleanField(body.coverage_type);
   const email = cleanField(body.email);
@@ -38,7 +81,8 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const emailSubject = `New quote request from ${name} (${capitalize(coverage_type)})`;
+  const isPitch = looksLikeSalesPitch(`${message} ${name}`);
+  const emailSubject = `${isPitch ? '[Possible Sales Pitch] ' : ''}New quote request from ${name} (${capitalize(coverage_type)})`;
 
   const textBody =
     'New "Get A Quote" request submitted on healthsecuresolution.com:\n\n' +
