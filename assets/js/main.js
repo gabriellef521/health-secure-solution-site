@@ -22,15 +22,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  /* Spam-bot protection: stamp any form's hidden "ts" field with the
+     current time once it's actually visible to a person. Server-side
+     checks reject submissions sent implausibly fast after this. */
+  function stampFormTime(form) {
+    var ts = form.querySelector('.js-form-ts');
+    if (ts) ts.value = Date.now().toString();
+  }
+
   /* Get A Quote modal */
   var openers = document.querySelectorAll('[data-open-quote]');
   var overlay = document.getElementById('quote-modal');
   if (overlay) {
     var closeBtn = overlay.querySelector('.modal__close');
+    var quoteForm = overlay.querySelector('form');
     openers.forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         e.preventDefault();
         overlay.classList.add('open');
+        if (quoteForm) stampFormTime(quoteForm);
       });
     });
     function closeModal() { overlay.classList.remove('open'); }
@@ -67,6 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0.4 });
     counters.forEach(function (c) { obs.observe(c); });
   }
+
+  /* Stamp the Contact page form as soon as the page is ready, since
+     that form is visible on load rather than opened like the modal. */
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) stampFormTime(contactForm);
 
   /* Forms: front-end only placeholder.
      To make these forms actually send email, wire the action up to
