@@ -67,6 +67,21 @@
   ]
 }
 </script>
+<style>
+.reviews-head{text-align:center;max-width:640px;margin:0 auto 34px;}
+.reviews-head h2{margin-bottom:10px;}
+.reviews-rating{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:600;color:var(--ink);}
+.reviews-rating .stars{color:#e6a817;letter-spacing:2px;font-size:1.15rem;}
+.reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+.review-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:26px 26px 22px;box-shadow:var(--shadow);display:flex;flex-direction:column;}
+.review-card .stars{color:#e6a817;letter-spacing:2px;font-size:1rem;margin-bottom:12px;}
+.review-card blockquote{margin:0 0 18px;color:var(--ink);line-height:1.65;font-size:0.97rem;flex:1;}
+.review-card__who{display:flex;align-items:center;gap:12px;font-size:0.9rem;color:var(--muted);}
+.review-card__avatar{width:38px;height:38px;border-radius:50%;background:var(--olive-light);color:var(--olive-dark);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:700;}
+.review-card__who strong{display:block;color:var(--ink);font-weight:600;}
+.reviews-more{text-align:center;margin-top:30px;}
+@media (max-width:760px){.reviews-grid{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
 
@@ -156,6 +171,41 @@
           <div class="carrier-strip__item"><img src="assets/images/carriers/molina.png" alt="Molina Healthcare"></div>
           <div class="carrier-strip__item"><img src="assets/images/carriers/oscar.png" alt="Oscar Health"></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="reviews-head">
+        <p class="eyebrow">Client Reviews</p>
+        <h2>What My Clients Say</h2>
+        <div class="reviews-rating"><span class="stars" aria-hidden="true">★★★★★</span><span>Rated 5.0 on Google</span></div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>“I’ve had a really positive experience with this health insurance company. Gaby has been helpful, professional, and responsive whenever I’ve had questions. The process has been straightforward, and I appreciate how easy they’ve made it to understand my coverage and get the assistance I need. Overall, I’m very happy with the service and would definitely recommend them to others looking for reliable health insurance.”</blockquote>
+          <div class="review-card__who"><span class="review-card__avatar">B</span><span><strong>Bradley V.</strong>Google review</span></div>
+        </div>
+        <div class="review-card">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>“Gaby has been incredibly helpful in assisting my family with our health coverage. She made the entire process simple, easy to understand, and completely stress-free. We truly appreciate her guidance and support throughout the process!”</blockquote>
+          <div class="review-card__who"><span class="review-card__avatar">M</span><span><strong>Mariah M.</strong>Google review</span></div>
+        </div>
+        <div class="review-card">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>“Gaby was professional, personable, and extremely knowledgeable. Gaby got me the best plan for my situation and explained everything so clearly. I’m very very happy with my experience”</blockquote>
+          <div class="review-card__who"><span class="review-card__avatar">M</span><span><strong>Madison H.</strong>Google review</span></div>
+        </div>
+        <div class="review-card">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>“Thanks for helping find coverage for my mother and I. Gaby was lovely to speak with and made the transition from our previous package to a better option feel smooth and seamless.”</blockquote>
+          <div class="review-card__who"><span class="review-card__avatar">J</span><span><strong>Jakai L.</strong>Google review</span></div>
+        </div>
+      </div>
+      <div class="reviews-more">
+        <a href="https://share.google/Y98J8jS4Y0NWcesob" class="btn btn--outline" target="_blank" rel="noopener">Read More Reviews On Google</a>
       </div>
     </div>
   </section>
