@@ -3,4 +3,4 @@ Allow: /
 Disallow: /thank-you.html
 Disallow: /*.php$
 
-Sitemap: https://healthsecuresolution.com/sitemap.xml
+Sitemap: https://www.healthsecuresolution.com/sitemap.xml
