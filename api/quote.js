@@ -47,6 +47,9 @@ const SALES_PITCH_KEYWORDS = [
   'boost your online presence', 'online visibility', 'free consultation',
   'no obligation', 'get more leads', 'guaranteed results', 'website audit',
   'increase traffic', 'more traffic to your website',
+  'search visibility', 'organic traffic', 'search traffic', 'position your brand',
+  'above competitors', 'leads tomorrow', 'caught my attention', 'came across your site',
+  'free audit', 'ranking strongly', 'rank on google', 'ranking on google',
 ];
 
 function looksLikeSalesPitch(text) {
