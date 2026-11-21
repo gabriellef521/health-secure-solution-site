@@ -74,6 +74,9 @@ module.exports = async (req, res) => {
   const coverage_type = cleanField(body.coverage_type);
   const email = cleanField(body.email);
   const phone = cleanField(body.phone);
+  const prefRaw = cleanField(body.contact_preference).toLowerCase();
+  const contactPref = ['text', 'call', 'email'].includes(prefRaw) ? prefRaw : 'email';
+  const prefTag = contactPref === 'email' ? '' : ` [Prefers ${contactPref.toUpperCase()}]`;
   const message = (body.message || '').toString().trim();
 
   if (!name || !coverage_type || !email || !isValidEmail(email)) {
@@ -82,14 +85,15 @@ module.exports = async (req, res) => {
   }
 
   const isPitch = looksLikeSalesPitch(`${message} ${name}`);
-  const emailSubject = `${isPitch ? '[Possible Sales Pitch] ' : ''}New quote request from ${name} (${capitalize(coverage_type)})`;
+  const emailSubject = `${isPitch ? '[Possible Sales Pitch] ' : ''}New quote request from ${name} (${capitalize(coverage_type)})${prefTag}`;
 
   const textBody =
     'New "Get A Quote" request submitted on healthsecuresolution.com:\n\n' +
     `Name: ${name}\n` +
     `Coverage Type: ${capitalize(coverage_type)}\n` +
     `Email: ${email}\n` +
-    `Phone: ${phone || '(not provided)'}\n\n` +
+    `Phone: ${phone || '(not provided)'}\n` +
+    `Best way to reach: ${contactPref.charAt(0).toUpperCase() + contactPref.slice(1)}\n\n` +
     `What they're looking for:\n${message || '(not provided)'}\n`;
 
   try {

@@ -70,6 +70,9 @@ module.exports = async (req, res) => {
   const last_name = cleanField(body.last_name);
   const email = cleanField(body.email);
   const phone = cleanField(body.phone);
+  const prefRaw = cleanField(body.contact_preference).toLowerCase();
+  const contactPref = ['text', 'call', 'email'].includes(prefRaw) ? prefRaw : 'email';
+  const prefTag = contactPref === 'email' ? '' : ` [Prefers ${contactPref.toUpperCase()}]`;
   const subject = cleanField(body.subject);
   const message = (body.message || '').toString().trim();
 
@@ -79,13 +82,14 @@ module.exports = async (req, res) => {
   }
 
   const isPitch = looksLikeSalesPitch(`${subject} ${message}`);
-  const emailSubject = `${isPitch ? '[Possible Sales Pitch] ' : ''}New website message from ${first_name} ${last_name}`.trim();
+  const emailSubject = `${isPitch ? '[Possible Sales Pitch] ' : ''}New website message from ${first_name} ${last_name}${prefTag}`.trim();
 
   const textBody =
     'New message submitted through the Contact Us form on healthsecuresolution.com:\n\n' +
     `Name: ${first_name} ${last_name}\n` +
     `Email: ${email}\n` +
     `Phone: ${phone || '(not provided)'}\n` +
+    `Best way to reach: ${contactPref.charAt(0).toUpperCase() + contactPref.slice(1)}\n` +
     `Subject: ${subject || '(none)'}\n\n` +
     `Message:\n${message}\n`;
 
