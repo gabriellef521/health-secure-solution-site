@@ -104,6 +104,7 @@
   <div class="container">
     <div class="topbar__contact">
       <a href="tel:6032335480">📞 603 233 5480</a>
+      <a href="sms:+16032335480">💬 Text me</a>
       <a href="mailto:gabriellef@healthsecuresolution.com">✉ gabriellef@healthsecuresolution.com</a>
     </div>
     <div class="topbar__social">
@@ -135,12 +136,16 @@
 
   <section class="hero">
     <div class="container hero__inner">
-      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px;">
+      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:20px;">
+        <span style="background:#fff; color:var(--olive); font-weight:800; font-size:1.05rem; letter-spacing:0.02em; padding:12px 24px; border-radius:999px; box-shadow:0 6px 18px rgba(0,0,0,0.18);">Licensed in 36+ States</span>
+        <span style="background:rgba(255,255,255,0.15); color:#fff; font-weight:600; font-size:0.9rem; letter-spacing:0.06em; text-transform:uppercase; padding:10px 18px; border-radius:999px;">Based in Florida</span>
+      </div>
+      <h1>Welcome to Health Secure Solutions</h1>
+      <p class="lead">Based in Florida and licensed in 36+ states, I help individuals, families, self-employed people and small businesses find coverage that actually fits their life.</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:22px;">
         <a href="individual.html" class="eyebrow" style="background:rgba(255,255,255,0.15); color:#fff;">Individual/ Family Coverage</a>
         <a href="group.html" class="eyebrow" style="background:rgba(255,255,255,0.15); color:#fff;">Group Coverage</a>
       </div>
-      <h1>Welcome to Health Secure Solutions</h1>
-      <p class="lead">We ensure the best insurance service. Based in Fort Lauderdale, FL and licensed in 36+ states, I help you find coverage that actually fits your life.</p>
       <div class="hero__actions">
         <a href="individual.html" class="btn btn--light">Explore Coverage</a>
         <a href="#" class="btn btn--outline" style="border-color:#fff; color:#fff;" data-open-quote>Get A Quote</a>
@@ -324,6 +329,8 @@
         </div>
         <div class="full"><label>Email</label><input type="email" name="email" required></div>
         <div class="full"><label>Phone</label><input type="tel" name="phone"></div>
+        <div class="full"><label for="quote-pref">Best way to reach you</label><select id="quote-pref" name="contact_preference"><option value="email" selected>Email</option><option value="text">Text</option><option value="call">Call</option></select></div>
+        <div class="full"><p class="form-consent" style="font-size:0.78rem;line-height:1.45;color:#6b7168;margin:2px 0 0;">By giving your number you agree I may call or text you about your insurance options. Message and data rates may apply. Reply STOP to opt out.</p></div>
         <div class="full"><label>What are you looking for?</label><textarea name="message" rows="3"></textarea></div>
       </div>
       <button type="submit" class="btn btn--primary" style="margin-top:14px; width:100%; justify-content:center;">Send</button>
